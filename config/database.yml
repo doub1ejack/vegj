@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: veggme_development
+  database: vegj_development
   pool: 5
   username: veggme
   password:
@@ -25,9 +25,9 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: veggme_test
+  database: vegj_test
   pool: 5
-  username: veggme
+  username: vegj
   password:
   host: localhost
 
@@ -35,8 +35,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: veggme_production
+  database: vegj_production
   pool: 5
-  username: veggme
+  username: vegj
   password:
   host: localhost
