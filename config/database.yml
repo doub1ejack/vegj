@@ -27,7 +27,7 @@ test:
   reconnect: false
   database: vegj_test
   pool: 5
-  username: vegj
+  username: veggme
   password:
   host: localhost
 
