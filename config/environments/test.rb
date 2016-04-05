@@ -26,11 +26,6 @@ Rails.application.configure do
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
-  # Tell Action Mailer not to deliver emails to the real world.
-  # The :test delivery method accumulates sent emails in the
-  # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
-
   # Randomize the order test cases are executed.
   config.active_support.test_order = :random
 
@@ -39,4 +34,28 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  ##############
+  ##  MAILER  ##
+  ##############
+  # Tell Action Mailer not to deliver emails to the real world.
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: Rails.application.secrets.email_provider_smtp_domain,
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: Rails.application.secrets.email_provider_username,
+    password: Rails.application.secrets.email_provider_password
+  }
+  # ActionMailer Config
+  # The :test delivery method accumulates sent emails in the ActionMailer::Base.deliveries array.
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.raise_delivery_errors = true
+  
+  # Send email in test mode?
+  config.action_mailer.perform_deliveries = false
+  config.action_mailer.default :charset => "utf-8"
+
 end
