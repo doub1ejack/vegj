@@ -24,12 +24,10 @@ RSpec.describe GardensController, type: :controller do
   # Garden. As you add validations to Garden, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:garden)
   }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) { {:name => nil, :square_feet => nil, :zone => nil} }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -96,14 +94,14 @@ RSpec.describe GardensController, type: :controller do
       it "re-renders the 'new' template" do
         post :create, {:garden => invalid_attributes}, valid_session
         expect(response).to render_template("new")
-      end
+      end      
     end
   end
 
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        FactoryGirl.attributes_for(:garden)
       }
 
       it "updates the requested garden" do
