@@ -1,4 +1,6 @@
 class GardensController < ApplicationController
+  rescue_from ActiveRecord::StatementInvalid, :with => :render_statement_invalid
+  
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   # GET /gardens
@@ -70,5 +72,9 @@ class GardensController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def garden_params
       params.require(:garden).permit(:name, :square_feet, :zone, :garden_type, :user_id)
+    end
+    
+    def render_statement_invalid
+      redirect_to action: :create
     end
 end
