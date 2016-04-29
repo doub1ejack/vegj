@@ -46,6 +46,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do
