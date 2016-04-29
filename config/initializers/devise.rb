@@ -151,6 +151,24 @@ Devise.setup do |config|
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
   # config.email_regexp = /\A[^@]+@[^@]+\z/
+  
+  # MM: added this regex in response to this warning during rspec run:
+  #
+  # DEPRECATION WARNING: [Devise] config.email_regexp will have a new default on Devise 4.1
+  # To keep the current behavior please set in your config/initializers/devise.rb the following:
+  # 
+  # Devise.setup do |config|
+  #   config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
+  # end
+  # 
+  # If you want to use the new default:
+  # 
+  # Devise.setup do |config|
+  #   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  # end
+  # . (called from <top (required)> at /sites/veggies/vegj/config/initializers/devise.rb:3)
+  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
