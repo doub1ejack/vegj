@@ -25,6 +25,7 @@ RSpec.describe GardensController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     FactoryGirl.attributes_for(:garden)
+    # TODO: use Faker to generate random test data
   }
 
   let(:invalid_attributes) { {:name => nil, :square_feet => nil, :zone => nil} }
@@ -100,15 +101,22 @@ RSpec.describe GardensController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        FactoryGirl.attributes_for(:garden)
+      
+      let(:new_attributes) { 
+        newAttrs = {
+          name: "Newer, Better Garden",
+          zone: 98765432,
+          square_feet: 23456789
+        }
+        FactoryGirl.attributes_for(:garden, newAttrs )
       }
 
-      it "updates the requested garden" do
-        garden = Garden.create! valid_attributes
+      # TODO: make this more durable (if newAttributes changes, this will be incomplete or break)
+      it "updates the requested garden to new attributes" do
+        garden = Garden.create! new_attributes
         put :update, {:id => garden.to_param, :garden => new_attributes}, valid_session
         garden.reload
-        skip("Add assertions for updated state")
+        expect(garden).to have_attributes( name: "Newer, Better Garden", zone: 98765432, square_feet: 23456789 )
       end
 
       it "assigns the requested garden as @garden" do
