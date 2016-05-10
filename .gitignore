@@ -64,13 +64,10 @@ pickle-email-*.html
 # Mac finder artifacts
 .DS_Store
 
-# Netbeans project directory
+# IDE project directories
 /nbproject/
-
-# RubyMine project files
+.project
 .idea
-
-# Textmate project files
 /*.tmproj
 
 # vim artifacts
@@ -82,3 +79,6 @@ pickle-email-*.html
 
 # tilde files are usually backup files from a text editor
 *~
+
+# sensitive files
+secrets.yml

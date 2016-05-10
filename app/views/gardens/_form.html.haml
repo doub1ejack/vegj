@@ -1,0 +1,12 @@
+= simple_form_for(@garden) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :square_feet
+    = f.input :zone
+    = f.input :garden_type
+    = f.association :user
+
+  .form-actions
+    = f.button :submit
