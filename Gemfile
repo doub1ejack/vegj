@@ -64,6 +64,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
+  # TODO: gem 'guard-rspec', require: false  # http://eyefodder.com/2014/09/guard-and-rspec.html
   
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
