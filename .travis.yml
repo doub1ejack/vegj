@@ -1,3 +1,11 @@
 language: ruby
 rvm:
  - 2.2.3
+
+before_script:
+  - mysql -e 'create database IF NOT EXISTS vegj_test;'
+
+services:
+  # http://stackoverflow.com/questions/9321153/rails-database-setup-on-travis-ci
+  # https://docs.travis-ci.com/user/database-setup/#MySQL
+  - mysql
