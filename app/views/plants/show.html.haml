@@ -1,0 +1,51 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @plant.name
+%p
+  %b Scientific name:
+  = @plant.scientific_name
+%p
+  %b Height:
+  = @plant.height
+%p
+  %b Width:
+  = @plant.width
+%p
+  %b Spacing:
+  = @plant.spacing
+%p
+  %b Life cycle:
+  = @plant.life_cycle
+%p
+  %b Sun:
+  = @plant.sun
+%p
+  %b Sow method:
+  = @plant.sow_method
+%p
+  %b Direct seed start:
+  = @plant.direct_seed_start
+%p
+  %b Direct seed stop:
+  = @plant.direct_seed_stop
+%p
+  %b Indoor seed start:
+  = @plant.indoor_seed_start
+%p
+  %b Indoor seed stop:
+  = @plant.indoor_seed_stop
+%p
+  %b Transplant start:
+  = @plant.transplant_start
+%p
+  %b Transplant stop:
+  = @plant.transplant_stop
+%p
+  %b Garden:
+  = @plant.garden
+
+= link_to 'Edit', edit_plant_path(@plant)
+\|
+= link_to 'Back', plants_path

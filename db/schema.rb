@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420115351) do
+ActiveRecord::Schema.define(version: 20160928115813) do
 
   create_table "gardens", force: :cascade do |t|
     t.string   "name",        limit: 255, null: false
@@ -24,6 +24,28 @@ ActiveRecord::Schema.define(version: 20160420115351) do
   end
 
   add_index "gardens", ["user_id"], name: "index_gardens_on_user_id", using: :btree
+
+  create_table "plants", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.string   "scientific_name",   limit: 255
+    t.integer  "height",            limit: 4
+    t.integer  "width",             limit: 4
+    t.integer  "spacing",           limit: 4
+    t.integer  "life_cycle",        limit: 4
+    t.integer  "sun",               limit: 4
+    t.integer  "sow_method",        limit: 4
+    t.date     "direct_seed_start"
+    t.date     "direct_seed_stop"
+    t.date     "indoor_seed_start"
+    t.date     "indoor_seed_stop"
+    t.date     "transplant_start"
+    t.date     "transplant_stop"
+    t.integer  "garden_id",         limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "plants", ["garden_id"], name: "index_plants_on_garden_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
@@ -54,4 +76,5 @@ ActiveRecord::Schema.define(version: 20160420115351) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "gardens", "users"
+  add_foreign_key "plants", "gardens"
 end

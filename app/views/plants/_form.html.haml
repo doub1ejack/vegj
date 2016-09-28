@@ -1,0 +1,22 @@
+= simple_form_for(@plant) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :scientific_name
+    = f.input :height
+    = f.input :width
+    = f.input :spacing
+    = f.input :life_cycle
+    = f.input :sun
+    = f.input :sow_method
+    = f.input :direct_seed_start
+    = f.input :direct_seed_stop
+    = f.input :indoor_seed_start
+    = f.input :indoor_seed_stop
+    = f.input :transplant_start
+    = f.input :transplant_stop
+    = f.association :garden
+
+  .form-actions
+    = f.button :submit
