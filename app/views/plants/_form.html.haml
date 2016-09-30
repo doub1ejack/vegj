@@ -7,16 +7,16 @@
     = f.input :height
     = f.input :width
     = f.input :spacing
-    = f.input :life_cycle
-    = f.input :sun
-    = f.input :sow_method
+    = f.select :life_cycle, Plant.life_cycles.keys
+    = f.select :sun, Plant.suns.keys
+    = f.select :sow_method, Plant.sow_methods.keys
     = f.input :direct_seed_start
     = f.input :direct_seed_stop
     = f.input :indoor_seed_start
     = f.input :indoor_seed_stop
     = f.input :transplant_start
     = f.input :transplant_stop
-    = f.association :garden
+    = f.collection_select :garden, Garden.all, :id, :name
 
   .form-actions
     = f.button :submit
