@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-ruby '2.2.3'
+ruby '2.2.5'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets
@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'administrate'
 gem 'bootstrap-sass'
+gem 'bourbon'
 gem 'devise'
 gem 'devise_invitable'
 gem 'haml-rails'
@@ -40,6 +41,10 @@ gem 'high_voltage'
 gem 'mysql2', '~> 0.3.18'
 gem 'pundit'
 gem 'simple_form'
+
+# Gem to enable multi table inheritance for Plants->Vegetables/Flowers/etc
+# (see https://github.com/hzamani/active_record-acts_as)
+gem 'active_record-acts_as'
 
 group :test do
   gem 'capybara'
