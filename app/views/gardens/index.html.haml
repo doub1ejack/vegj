@@ -7,7 +7,7 @@
       %th Square feet
       %th Zone
       %th Garden type
-      %th User
+      %th User email
       %th
       %th
       %th
@@ -19,7 +19,7 @@
         %td= garden.square_feet
         %td= garden.zone
         %td= garden.garden_type
-        %td= garden.user
+        %td= garden.user.email
         %td= link_to 'Show', garden
         %td= link_to 'Edit', edit_garden_path(garden)
         %td= link_to 'Destroy', garden, :method => :delete, :data => { :confirm => 'Are you sure?' }

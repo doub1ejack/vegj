@@ -6,7 +6,7 @@
     = f.input :square_feet
     = f.input :zone
     = f.input :garden_type
-    = f.association :user
+    = f.collection_select :user, User.all, :id, :email
 
   .form-actions
     = f.button :submit
