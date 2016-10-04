@@ -3,7 +3,6 @@ FactoryGirl.define do
     name "MyString"
     square_feet 1
     zone 1
-    garden_type "MyString"
-    user nil
+    association :user, :factory => :user
   end
 end

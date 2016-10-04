@@ -39,7 +39,7 @@
         %td= plant.indoor_seed_stop
         %td= plant.transplant_start
         %td= plant.transplant_stop
-        %td= plant.garden
+        %td= plant.garden.name
         %td= link_to 'Show', plant
         %td= link_to 'Edit', edit_plant_path(plant)
         %td= link_to 'Destroy', plant, :method => :delete, :data => { :confirm => 'Are you sure?' }

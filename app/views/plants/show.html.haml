@@ -8,10 +8,10 @@
   = @plant.scientific_name
 %p
   %b Height:
-  = @plant.height
+  "#{@plant.height} inches"
 %p
   %b Width:
-  = @plant.width
+  "#{@plant.width} inches"
 %p
   %b Spacing:
   = @plant.spacing
@@ -44,7 +44,7 @@
   = @plant.transplant_stop
 %p
   %b Garden:
-  = @plant.garden
+  = @plant.garden.name
 
 = link_to 'Edit', edit_plant_path(@plant)
 \|
