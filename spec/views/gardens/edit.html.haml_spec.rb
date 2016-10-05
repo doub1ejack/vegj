@@ -8,7 +8,7 @@ RSpec.describe "gardens/edit", type: :view do
       :square_feet => 1,
       :zone => 1,
       :garden_type => "MyString",
-      :user => nil
+      :user => build(:user)
     ))
   end
 
