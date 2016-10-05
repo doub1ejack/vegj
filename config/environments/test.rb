@@ -38,11 +38,18 @@ Rails.application.configure do
   ##############
   ##  MAILER  ##
   ##############
-  # Tell Action Mailer not to deliver emails to the real world.
+
+  # NOTE: in order to use plain authentication with gmail's smtp server
+  # you need to turn on "Allow less secure apps" in the security settings
+  # for the user that your are sending email under.  
+  # (Log into google as that user & visit https://myaccount.google.com/security)
+  # 
+  # Also, the domain doesn't seem to be important. It was working as
+  # "example.com".  More info here: http://railsapps.github.io/rails-send-email.html
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: Rails.application.secrets.email_provider_smtp_domain,
+    domain: "tests.vegj.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: Rails.application.secrets.email_provider_username,
