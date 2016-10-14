@@ -3,13 +3,7 @@ require 'rails_helper'
 
 RSpec.describe "gardens/edit", type: :view do
   before(:each) do
-    @garden = assign(:garden, Garden.create!(
-      :name => "MyString",
-      :square_feet => 1,
-      :zone => 1,
-      :garden_type => "MyString",
-      :user => build(:user)
-    ))
+    @garden = FactoryGirl.create(:garden)
   end
 
   it "renders the edit garden form" do
