@@ -25,7 +25,7 @@ RSpec.describe GardensController, type: :controller do
   # Garden. As you add validations to Garden, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.attributes_for(:garden)
+    FactoryGirl.build(:garden).attributes
     # TODO: use Faker to generate random test data
   }
 
@@ -102,14 +102,14 @@ RSpec.describe GardensController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      
-      let(:new_attributes) { 
+      let(:new_attributes) {
         newAttrs = {
           name: "Newer, Better Garden",
           zone: 98765432,
-          square_feet: 23456789
+          square_feet: 23456789,
+          user_id: FactoryGirl.create(:user).id
         }
-        FactoryGirl.attributes_for(:garden, newAttrs )
+        FactoryGirl.build(:garden, newAttrs ).attributes
       }
 
       # TODO: make this more durable (if newAttributes changes, this will be incomplete or break)
@@ -121,7 +121,7 @@ RSpec.describe GardensController, type: :controller do
       end
 
       it "assigns the requested garden as @garden" do
-      garden = FactoryGirl.create(:garden)
+        garden = FactoryGirl.create(:garden)
         put :update, {:id => garden.to_param, :garden => valid_attributes}, valid_session
         expect(assigns(:garden)).to eq(garden)
       end
