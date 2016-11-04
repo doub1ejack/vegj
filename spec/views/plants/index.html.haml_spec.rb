@@ -3,28 +3,8 @@ require 'rails_helper'
 RSpec.describe "plants/index", type: :view do
   before(:each) do
     assign(:plants, [
-      Plant.create!(
-        :name => "Name",
-        :scientific_name => "Scientific Name",
-        :height => 1,
-        :width => 2,
-        :spacing => 3,
-        :life_cycle => 4,
-        :sun => 5,
-        :sow_method => 6,
-        :garden => nil
-      ),
-      Plant.create!(
-        :name => "Name",
-        :scientific_name => "Scientific Name",
-        :height => 1,
-        :width => 2,
-        :spacing => 3,
-        :life_cycle => 4,
-        :sun => 5,
-        :sow_method => 6,
-        :garden => nil
-      )
+      Plant.create!( FactoryGirl.create(:garden) ),
+      Plant.create!( FactoryGirl.create(:garden) )
     ])
   end
 
