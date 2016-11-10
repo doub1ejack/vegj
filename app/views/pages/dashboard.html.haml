@@ -1,0 +1,30 @@
+- content_for :top_content do
+	.jumbotron
+		.container
+			%h1= "Welcome"	
+
+			%table
+				%thead
+					%tr
+					%th Name
+					%th Square feet
+					%th Zone
+					%th Garden type
+					%th User email
+					%th
+					%th
+					%th
+				%tbody
+					- @gardens.each do |garden|
+						%tr
+							%td= garden.name
+							%td= garden.square_feet
+							%td= garden.zone
+							%td= garden.garden_type
+							%td= garden.user.email
+							%td= link_to 'Show', garden
+							%td= link_to 'Edit', edit_garden_path(garden)
+							%td= link_to 'Destroy', garden, :method => :delete, :data => { :confirm => 'Are you sure?' }
+			%br
+				
+				- link_to 'New Garden', new_garden_path

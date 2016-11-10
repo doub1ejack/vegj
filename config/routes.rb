@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'  
   authenticated :user do
-    root :to => "gardens#index", as: :authenticated_root
+    root :to => "pages#dashboard", as: :authenticated_root
   end
   root :to => "pages#index"
 
