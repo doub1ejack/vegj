@@ -1,8 +1,9 @@
 - content_for :top_content do
 	.jumbotron
 		.container
-			%h1= "Welcome"	
+			%h1= "Welcome to your Dashboard"	
 
+			%h2 Your Gardens
 			%table
 				%thead
 					%tr
@@ -28,3 +29,12 @@
 			%br
 				
 				- link_to 'New Garden', new_garden_path
+			
+			%h2 Your Plants
+			%p (coming soon..)
+
+			%h2 Your Journal
+			%p (coming later..)
+				
+			%h3 New Journal Entry
+			%p (coming after the journal..)
