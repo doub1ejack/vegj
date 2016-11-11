@@ -17,7 +17,7 @@ describe 'authenticated user' do
     
     expect(current_path).to eq(root_path)
 
-    expect(page).to have_content 'Welcome to your Dashboard'
+    expect(page).to have_content "Welcome #{user.name}" 
     expect(page).to have_content 'Your Journal'
     expect(page).to have_content 'New Journal Entry'
     expect(page).to have_content 'Your Plants'
