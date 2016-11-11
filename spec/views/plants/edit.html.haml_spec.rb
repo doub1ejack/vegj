@@ -1,18 +1,9 @@
 require 'rails_helper'
+require 'factory_girl_rails'
 
 RSpec.describe "plants/edit", type: :view do
   before(:each) do
-    @plant = assign(:plant, Plant.create!(
-      :name => "MyString",
-      :scientific_name => "MyString",
-      :height => 1,
-      :width => 1,
-      :spacing => 1,
-      :life_cycle => 1,
-      :sun => 1,
-      :sow_method => 1,
-      :garden => nil
-    ))
+    @plant = assign(:plant, FactoryGirl::create(:plant))
   end
 
   it "renders the edit plant form" do
@@ -30,13 +21,13 @@ RSpec.describe "plants/edit", type: :view do
 
       assert_select "input#plant_spacing[name=?]", "plant[spacing]"
 
-      assert_select "input#plant_life_cycle[name=?]", "plant[life_cycle]"
+      assert_select "select#plant_life_cycle[name=?]", "plant[life_cycle]"
 
-      assert_select "input#plant_sun[name=?]", "plant[sun]"
+      assert_select "select#plant_sun[name=?]", "plant[sun]"
 
-      assert_select "input#plant_sow_method[name=?]", "plant[sow_method]"
+      assert_select "select#plant_sow_method[name=?]", "plant[sow_method]"
 
-      assert_select "input#plant_garden_id[name=?]", "plant[garden_id]"
+      assert_select "select#plant_garden[name=?]", "plant[garden]"
     end
   end
 end

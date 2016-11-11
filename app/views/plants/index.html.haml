@@ -11,12 +11,12 @@
       %th Life cycle
       %th Sun
       %th Sow method
-      %th Direct seed start
-      %th Direct seed stop
-      %th Indoor seed start
-      %th Indoor seed stop
-      %th Transplant start
-      %th Transplant stop
+      -# %th Direct seed start
+      -# %th Direct seed stop
+      -# %th Indoor seed start
+      -# %th Indoor seed stop
+      -# %th Transplant start
+      -# %th Transplant stop
       %th Garden
       %th
       %th
@@ -33,12 +33,12 @@
         %td= plant.life_cycle
         %td= plant.sun
         %td= plant.sow_method
-        %td= plant.direct_seed_start
-        %td= plant.direct_seed_stop
-        %td= plant.indoor_seed_start
-        %td= plant.indoor_seed_stop
-        %td= plant.transplant_start
-        %td= plant.transplant_stop
+        -# %td= plant.direct_seed_start
+        -# %td= plant.direct_seed_stop
+        -# %td= plant.indoor_seed_start
+        -# %td= plant.indoor_seed_stop
+        -# %td= plant.transplant_start
+        -# %td= plant.transplant_stop
         %td= plant.garden.name
         %td= link_to 'Show', plant
         %td= link_to 'Edit', edit_plant_path(plant)
