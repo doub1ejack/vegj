@@ -13,7 +13,7 @@ describe 'authenticated user' do
     fill_in 'Password', with: user.password
     click_button 'Log in'
     
-    puts User.all.inspect
+    # puts User.all.inspect
     
     expect(current_path).to eq(root_path)
 

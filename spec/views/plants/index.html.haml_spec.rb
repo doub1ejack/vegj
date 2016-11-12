@@ -9,7 +9,7 @@ RSpec.describe "plants/index", type: :view do
   it "renders a list of plants" do
     render
     plant = FactoryGirl.create(:plant_rose_mallow)
-    puts plant.inspect
+    # puts plant.inspect
     assert_select "tr>td", :text => plant.name, :count => 2
     assert_select "tr>td", :text => plant.scientific_name, :count => 2
     assert_select "tr>td", :text => plant.height.to_s, :count => 2
