@@ -15,3 +15,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.site-logo {
+  width: 38px;
+  background: 0 0 no-repeat;
+}
+.navbar-brand {
+    padding: 7px 7px;
+}
