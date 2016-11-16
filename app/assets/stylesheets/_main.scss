@@ -1,0 +1,24 @@
+/* 1. stylesheets/base - global styles */
+@import "base/base";
+@import "base/fonts";
+@import "base/typography";
+@import "base/icons";
+@import "base/helpers";
+
+/* 2. stylesheets/components - widgets and bits */
+
+/* 3. stylesheets/layout - global partials */
+
+/* 4. stylesheets/page - Page-specific styles */
+@import "pages/gardens";
+@import "pages/plants";
+
+/* 5. stylesheets/themes - different site themes */
+
+/* 6. stylesheets/abstracts/ - configuration and helpers */
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+
+/* 7. stylesheets/vendors - third-party styles */ 
+
