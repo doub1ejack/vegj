@@ -8,40 +8,46 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#"}
+      %a.navbar-brand{:href => root_path}
         %img.site-logo{:alt => "Temporary Logo", :src => "/assets/logo.png"}
         
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          %a{:href => "#"}
-            Link
+          %a{:href => "/"}
+            Home    
             %span.sr-only (current)
         %li
-          %a{:href => "#"} Link
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dropdown
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} Separated link
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} One more separated link
-      %form.navbar-form.navbar-left
-        .form-group
-          %input.form-control{:placeholder => "Search", :type => "text"}/
-        %button.btn.btn-default{:type => "submit"} Submit
+          %a{:href => "/plants"} Plants
+        %li
+          %a{:href => "/gardens"} Gardens
+          
+        /
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Dropdown
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Action
+              %li
+                %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"} Something else here
+              %li.divider{:role => "separator"}
+              %li
+                %a{:href => "#"} Separated link
+              %li.divider{:role => "separator"}
+              %li
+                %a{:href => "#"} One more separated link
+                
       %ul.nav.navbar-nav.navbar-right
+        %li
+          %form.navbar-form.navbar-left
+            .form-group
+              %input.form-control{:placeholder => "Search (todo)", :type => "text"}/
+            %button.btn.btn-default{:type => "submit"} Go
         %li
           %a{:href => "#"} Link
         %li.dropdown
@@ -50,13 +56,14 @@
             %span.caret
           %ul.dropdown-menu
             %li
-              %a{:href => "#"} Action
+              %a{:href => edit_user_registration_path} My Profile
             %li
-              %a{:href => "#"} Another action
+              %a{:href => "#"} Link
             %li
-              %a{:href => "#"} Something else here
+              %a{:href => "#"} Link
             %li.divider{:role => "separator"}
             %li
-              %a{:href => "#"} Separated link
+              %a= render 'devise/menu/login_items'
+              
     / /.navbar-collapse
   / /.container-fluid
