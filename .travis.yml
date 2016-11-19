@@ -1,6 +1,6 @@
 language: ruby
 rvm:
- - 2.2.3
+ - 2.2.5
 
 before_script:
   - mysql -e 'create database IF NOT EXISTS vegj_test;'
