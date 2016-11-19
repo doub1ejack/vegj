@@ -46,13 +46,15 @@ gem 'simple_form'
 # (see https://github.com/hzamani/active_record-acts_as)
 gem 'active_record-acts_as'
 
+# for better code coverage
+gem 'coveralls', require: false
+
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
-  gem 'simplecov', :require => false, :group => :test
-  gem 'simplecov-shield', :require => false, :group => :test
+  # gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do
