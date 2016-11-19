@@ -1,3 +1,7 @@
+### Status
+[![Build Status](https://travis-ci.org/doub1ejack/vegj.png)](https://travis-ci.org/doub1ejack/vegj)
+[![GitHub issues](https://img.shields.io/github/issues/badges/shields.svg)](https://github.com/doub1ejack/vegj)
+
 == Vegj - A Vegetable Growers Journal
 
 Actually Vegj is more of an experiment in learning ruby than anything else.  

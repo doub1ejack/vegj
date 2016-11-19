@@ -52,6 +52,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false, :group => :test
+  gem 'simplecov-shield', :require => false, :group => :test
 end
 
 group :development do
