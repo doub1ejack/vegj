@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :plants
-  resources :gardens
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'  
+  resources :plants
+  resources :gardens
+  
+  # set custom controller for devise registsrations
+  devise_for :users, :controllers => { :registrations => "users/registrations" }
+  
+  # You can have the root of your site routed with "root"  
   authenticated :user do
     root :to => "pages#dashboard", as: :authenticated_root
   end
