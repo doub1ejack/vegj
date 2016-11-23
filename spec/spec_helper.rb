@@ -52,7 +52,11 @@ RSpec.configure do |config|
     # Prevents you from mocking or stubbing a method that does not exist on
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
-    mocks.verify_partial_doubles = true
+    # mocks.verify_partial_doubles = true
+    
+    # set this to false so that I could test the devise views (eg spec/views/devise/registration/new)
+    # see http://stackoverflow.com/questions/14426746/testing-devise-views-with-rspec
+    mocks.verify_partial_doubles = false
   end
 
 # The settings below are suggested to provide a good initial experience
