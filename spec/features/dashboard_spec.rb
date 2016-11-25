@@ -3,20 +3,23 @@ require 'factory_girl_rails'
 
 describe 'authenticated user' do
   it "accesses the dashboard" do
-    user = FactoryGirl.build(:confirmed_user)
+    
+    # create user
+    user = FactoryGirl.build(:user)
     user.skip_confirmation!
     user.save!
   
+    # login to app
     visit root_path
     click_link 'Login'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
     
-    # puts User.all.inspect
-    
+    # expect redirection to site root
     expect(current_path).to eq(root_path)
 
+    # expect logged in user's site root to have these dashboard elements
     expect(page).to have_content "Welcome #{user.name}" 
     expect(page).to have_content 'Your Journal'
     expect(page).to have_content 'New Journal Entry'
