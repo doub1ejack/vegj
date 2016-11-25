@@ -2,12 +2,15 @@ require 'ffaker'
 
 FactoryGirl.define do
   factory :user do |u|
-    u.name FFaker::Name.name
-    u.email { |me| "#{name.to_s.gsub(/\s/,'.')}_#{rand(1000).to_s}@testing.com" }
-    u.password "password"
+    @pass = "password"
     
-    factory :confirmed_user do |u|
-      u.password_confirmation "password"
+    name FFaker::Name.name
+    email { |me| "#{name.to_s.gsub(/\s/,'.')}_#{rand(1000).to_s}@testing.com" }
+    password @pass
+    
+    factory :user_for_account_update do
+      password_confirmation @pass
+      current_password @pass
     end
   end
 end
