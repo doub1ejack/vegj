@@ -1,7 +1,31 @@
 require 'rails_helper'
 require 'factory_girl_rails'
 
-RSpec.describe Users::RegistrationsController, type: :controller do
+RSpec.describe Users::RegistrationsController, type: :controller do    
+    
+  describe "GET #new" do
+    let(:valid_session) { {} }
+    it "assigns a new user as @user"  # do
+      # get :new, {}, valid_session
+      # expect(assigns(:user)).to be_a_new(User)
+    # end
+  end
+  
+  describe "GET #edit" do
+    it "assigns the requested user as @user" #do
+      # use = FactoryGirl.create(:user)
+      # get :edit, {:id => user.to_param}, valid_session
+      # expect(assigns(:user)).to eq(user)
+    # end
+  end
+  
+  describe "GET #cancel" do
+    it "assigns user as @user (?)" #do
+      # garden = FactoryGirl.create(:garden)
+      # get :index, {}, valid_session
+      # expect(assigns(:gardens)).to eq([garden])
+    # end
+  end
   
   describe "POST #create" do
     let(:valid_attributes) { FactoryGirl.attributes_for(:user) }
