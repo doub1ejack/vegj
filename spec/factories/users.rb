@@ -10,7 +10,7 @@ FactoryGirl.define do
     
     factory :user_for_account_update do
       password_confirmation @pass
-      current_password @pass
+      confirmed_at Date.today
     end
   end
 end
