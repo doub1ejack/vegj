@@ -1,8 +1,8 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @garden.name
+%h1 #{@garden.name}
+= image_tag( @garden.thumb, {:width => 600})
+
 %p
   %b Square feet:
   #{@garden.square_feet} feet
