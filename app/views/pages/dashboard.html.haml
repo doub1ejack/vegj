@@ -32,5 +32,5 @@
             - @gardens.each_with_index do |garden, i|
               = link_to(garden) do
                 .garden.thumbnail
-                  = image_tag("http://lorempixel.com/g/800/400/food/#{i}",:alt => garden.name)
+                  = image_tag(garden.thumb,:alt => garden.name)
                   %h4.garden__title.caption= garden.name
