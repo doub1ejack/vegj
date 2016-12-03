@@ -20,11 +20,13 @@ describe 'authenticated user' do
     expect(current_path).to eq(root_path)
 
     # expect logged in user's site root to have these dashboard elements
-    expect(page).to have_content "Welcome #{user.name}" 
-    expect(page).to have_content 'Your Journal'
-    expect(page).to have_content 'New Journal Entry'
     expect(page).to have_content 'Your Plants'
+    expect(page).to have_selector(:css, "a[href=\"#{new_plant_path}\"]")
+
+    expect(page).to have_content 'Your Journal'
+
     expect(page).to have_content 'Your Gardens'
+    # expect(page).to have_link
   end
 end
 

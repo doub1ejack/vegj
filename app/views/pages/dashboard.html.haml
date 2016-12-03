@@ -1,40 +1,36 @@
 - content_for :top_content do
-	.jumbotron
-		.container
-			%h1= "Welcome #{@user.name}"	
 
-			%h2 Your Gardens
-			%table
-				%thead
-					%tr
-					%th Name
-					%th Square feet
-					%th Zone
-					%th Garden type
-					%th User email
-					%th
-					%th
-					%th
-				%tbody
-					- @gardens.each do |garden|
-						%tr
-							%td= garden.name
-							%td= garden.square_feet
-							%td= garden.zone
-							%td= garden.garden_type
-							%td= garden.user.email
-							%td= link_to 'Show', garden
-							%td= link_to 'Edit', edit_garden_path(garden)
-							%td= link_to 'Destroy', garden, :method => :delete, :data => { :confirm => 'Are you sure?' }
-			%br
-				
-				- link_to 'New Garden', new_garden_path
-			
-			%h2 Your Plants
-			%p (coming soon..)
+  .container
+    .row
 
-			%h2 Your Journal
-			%p (coming later..)
-				
-			%h3 New Journal Entry
-			%p (coming after the journal..)
+      <!-- LEFT COLUMN -->
+      .col-md-9
+
+        <!-- PLANTS -->
+        %h3
+          = link_to("Your Plants", plants_path)
+          = link_to(new_plant_path, { :class=>"new-plant-link" }) do
+            %span.glyphicon.glyphicon-plus-sign.text-success
+        =alert_box("..coming soon", context: "warning")
+
+      <!-- RIGHT COLUMN -->
+      .col-md-3
+
+        <!-- JOURNAL -->
+        .row
+          .col-md-12
+            %h3
+              Your Journal
+              = link_to(root_path) do
+                %span.glyphicon.glyphicon-plus-sign.text-success
+            =alert_box("..coming soon (after plants)", context: "warning")
+
+        <!-- GARDENS -->
+        .row
+          .col-md-12
+            %h3= link_to("Your Gardens", gardens_path)
+            - @gardens.each_with_index do |garden, i|
+              = link_to(garden) do
+                .garden.thumbnail
+                  = image_tag("http://lorempixel.com/g/800/400/food/#{i}",:alt => garden.name)
+                  %h4.garden__title.caption= garden.name
