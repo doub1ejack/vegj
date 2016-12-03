@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'administrate'
 gem 'bootstrap-sass'
+gem 'bh', '~> 1.3'      # so perfect!  http://fullscreen.github.io/bh
 gem 'bourbon'
 gem 'devise'
 gem 'devise_invitable'
