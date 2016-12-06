@@ -69,6 +69,10 @@ pickle-email-*.html
 .project
 .idea
 /*.tmproj
+vegj.iml
+
+# rvm ruby version
+.ruby-version
 
 # vim artifacts
 **.swp
@@ -76,6 +80,7 @@ pickle-email-*.html
 # Environment files that may contain sensitive data
 .env
 .powenv
+config/super-secret.yml
 
 # tilde files are usually backup files from a text editor
 *~
