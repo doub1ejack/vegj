@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928115813) do
+ActiveRecord::Schema.define(version: 20161206131402) do
 
   create_table "gardens", force: :cascade do |t|
     t.string   "name",        limit: 255, null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160928115813) do
     t.datetime "locked_at"
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
