@@ -5,4 +5,5 @@ describe "a user" do
   it "can create a new account"
   it "can view their profile"
   it "can update their profile"
+  it "cannot log in with a deactivated account"
 end

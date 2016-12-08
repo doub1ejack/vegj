@@ -20,6 +20,12 @@ RSpec.describe User, type: :model do
       expect( user_without_email ).to_not be_valid
     end
 
+    it "can soft-delete a user" do
+      user = FactoryGirl.create(:user)
+      user.soft_delete
+      expect(user.deleted_at).to_not be_nil
+    end
+
 
   end 
   

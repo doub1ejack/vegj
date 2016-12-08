@@ -14,7 +14,6 @@ RSpec.describe Users::RegistrationsController, type: :controller do
   end
   
   describe "GET #edit" do
-    let(:valid_session) { {} }
     it "assigns the requested user as @user" do
       request.env["devise.mapping"] = Devise.mappings[:user]
 
@@ -23,8 +22,35 @@ RSpec.describe Users::RegistrationsController, type: :controller do
       sign_in(user, scope: :user) # note: does not verify correct password
 
       # request edit form
-      get :edit, {:id => user.id}, valid_session
+      get :edit, {:id => user.id}
       expect(assigns(:user)).to eq(user)
+    end
+  end
+
+  describe "GET #destroy" do
+
+    it "sets 'deleted_at' date for user" do
+      request.env["devise.mapping"] = Devise.mappings[:user]
+
+      # sign-in user
+      user = FactoryGirl.create(:user_for_account_update)
+      sign_in(user, scope: :user) # note: does not verify correct password
+
+      # soft-delete user
+      delete :destroy, {:id => user.id}
+      expect(user.reload.deleted_at).to_not be_nil
+    end
+
+    it "logs out the user" do
+      request.env["devise.mapping"] = Devise.mappings[:user]
+
+      # sign-in user
+      user = FactoryGirl.create(:user_for_account_update)
+      sign_in(user, scope: :user) # note: does not verify correct password
+
+      # refer to https://github.com/plataformatec/devise/wiki/How-To:-Test-controllers-with-Rails-3-and-4-%28and-RSpec%29
+      delete :destroy, {:id => user.id}
+      expect(subject.current_user).to eq(nil)
     end
   end
   

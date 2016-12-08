@@ -7,8 +7,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  protected
-
   # SOFT DELETE /resource
   # Follows devise guide: https://github.com/plataformatec/devise/wiki/How-to:-Soft-delete-a-user-when-user-deletes-account
   def destroy
@@ -18,6 +16,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
   end
+
+  protected
 
   # we have to explicitly permit params in overridden controllers like this
   # see https://github.com/plataformatec/devise#strong-parameters
