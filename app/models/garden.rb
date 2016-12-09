@@ -1,5 +1,6 @@
 class Garden < ActiveRecord::Base
   belongs_to :user
+  has_and_belongs_to_many :plants
   
   validates :square_feet, presence: true
   validates :name, presence: true

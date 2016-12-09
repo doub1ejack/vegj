@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206131402) do
+ActiveRecord::Schema.define(version: 20161209153224) do
 
   create_table "gardens", force: :cascade do |t|
     t.string   "name",        limit: 255, null: false
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20161206131402) do
   end
 
   add_index "gardens", ["user_id"], name: "index_gardens_on_user_id", using: :btree
+
+  create_table "gardens_plants", force: :cascade do |t|
+    t.integer "garden_id", limit: 4
+    t.integer "plant_id",  limit: 4
+  end
+
+  add_index "gardens_plants", ["garden_id"], name: "index_gardens_plants_on_garden_id", using: :btree
+  add_index "gardens_plants", ["plant_id"], name: "index_gardens_plants_on_plant_id", using: :btree
 
   create_table "plants", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -77,5 +85,7 @@ ActiveRecord::Schema.define(version: 20161206131402) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "gardens", "users"
+  add_foreign_key "gardens_plants", "gardens"
+  add_foreign_key "gardens_plants", "plants"
   add_foreign_key "plants", "gardens"
 end
