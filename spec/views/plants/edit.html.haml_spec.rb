@@ -27,7 +27,7 @@ RSpec.describe "plants/edit", type: :view do
 
       assert_select "select#plant_sow_method[name=?]", "plant[sow_method]"
 
-      assert_select "select#plant_garden[name=?]", "plant[garden]"
+      # assert_select "select#plant_garden[name=?]", "plant[garden]"
     end
   end
 end
