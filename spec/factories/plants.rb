@@ -1,8 +1,11 @@
+require 'ffaker'
+
 FactoryGirl.define do
   factory :plant do
-    
+    name "Plant named '#{FFaker::Name.name}'"
+
     factory :plant_rose_mallow do
-      name "Rose Mallow" 
+      name "Rose Mallow"
       scientific_name "Lavatera trimestris"
       height 48
       width 18
