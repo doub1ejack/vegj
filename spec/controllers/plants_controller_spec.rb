@@ -86,6 +86,9 @@ RSpec.describe PlantsController, type: :controller do
         post :create, {:plant => valid_attributes}, valid_session
         expect(response).to redirect_to(Plant.last)
       end
+
+      it "can associate the plant with a garden"
+
     end
 
     context "with invalid params" do

@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :plant do
-    association :garden, :factory => :garden
     
     factory :plant_rose_mallow do
       name "Rose Mallow" 

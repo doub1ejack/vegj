@@ -13,6 +13,5 @@ RSpec.describe Plant, type: :model do
       expect( plant_without_name ).to_not be_valid
     end
   end 
-  
-  pending "should not belong to gardens (remove garden_id and create a mapping between plants and user gardens)"
+
 end
