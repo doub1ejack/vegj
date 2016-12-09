@@ -44,7 +44,7 @@
   = @plant.transplant_stop
 %p
   %b Garden:
-  = @plant.garden.name
+  -#= @plant.garden.name
 
 = link_to 'Edit', edit_plant_path(@plant)
 \|
