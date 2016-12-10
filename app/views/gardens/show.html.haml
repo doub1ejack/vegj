@@ -1,21 +1,34 @@
-%p#notice= notice
+.container
+  .row
+    .col-md-12
+      %p#notice= notice
 
-%h1 #{@garden.name}
-= image_tag( @garden.thumb, {:width => 600})
+  .row
+    .col-md-12
+      %h1 #{@garden.name}
 
-%p
-  %b Square feet:
-  #{@garden.square_feet} feet
-%p
-  %b Zone:
-  zone #{@garden.zone}
-%p
-  %b Garden type:
-  = @garden.garden_type
-%p
-  %b User email:
-  = @garden.user.email
+  .row.jumbotron
+    .col-md-8
+      = image_tag( @garden.thumb, {class: "img-responsive, img-thumbnail"})
 
-= link_to 'Edit', edit_garden_path(@garden)
-\|
-= link_to 'Back', gardens_path
+    .col-md-4
+      %p
+        %b Square feet:
+        #{@garden.square_feet} feet
+      %p
+        %b Zone:
+        zone #{@garden.zone}
+      %p
+        %b Garden type:
+        = @garden.garden_type
+
+      = link_to '[ Edit info ]', edit_garden_path(@garden)
+
+
+  .row
+    .col-md-12
+      %h3 You're growing #{@garden.plants.count} plants:
+  .row
+    .col-md-2
+      - @garden.plants.each do |plant|
+        = render("shared/plants/card", plant: plant)
