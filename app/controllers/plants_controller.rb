@@ -37,6 +37,30 @@ class PlantsController < ApplicationController
     end
   end
 
+
+  # POST /plants/{id}/add_to_garden/{id}
+  # POST /plants/{id}/add_to_garden/{id}.json
+  def add_to_garden
+    garden = Garden.find(params["garden_id"])
+    plant = Plant.find(params["id"])
+    garden.plants << plant
+    respond_to do |format|
+      if garden.save
+        format.js {
+          # return flash method OK
+        }
+        format.json { render status: :ok }
+        format.html { redirect_to garden_path(garden), notice: "#{plant.name} was successfully added." }
+      else
+        format.js {
+          # return flash method FAIL
+        }
+        format.json { render json: @garden.errors, status: :unprocessable_entity }
+        format.html { redirect_to garden_path(garden), notice: "#{plant.name} could not be added." }
+      end
+    end
+  end
+
   # PATCH/PUT /plants/1
   # PATCH/PUT /plants/1.json
   def update

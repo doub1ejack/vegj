@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :plants
   resources :gardens
+
+  resources :plants do
+    member do
+      post 'add_to_garden'
+    end
+  end
   
   # set custom controller for devise registsrations
   devise_for :users, :controllers => { :registrations => "users/registrations" }

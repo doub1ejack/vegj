@@ -31,4 +31,4 @@
   .row
     .col-md-2
       - @garden.plants.each do |plant|
-        = render("shared/plants/card", plant: plant)
+        = render("shared/plants/card", {plant: plant, garden: @garden} )
