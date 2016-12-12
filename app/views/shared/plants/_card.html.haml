@@ -1,5 +1,6 @@
-.plant.thumbnail.text-center
-  = button_to("+", [:add_to_garden, plant], {method: :post, params: {garden_id: @garden.id} })
-  = link_to(plant) do
-    = image_tag("http://lorempixel.com/g/150/150/food/",:alt => plant.name)
-    %h4.plant__title.caption= plant.name
+.col-md-2
+  .plant.thumbnail.text-center
+    = button_to("+", add_to_garden_path(plant, @garden.id), {method: :post })
+    = link_to(plant) do
+      = image_tag("http://lorempixel.com/g/150/150/food/",:alt => plant.name)
+      %h4.plant__title.caption= plant.name

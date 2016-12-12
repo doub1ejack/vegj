@@ -4,11 +4,9 @@ Rails.application.routes.draw do
 
   resources :gardens
 
-  resources :plants do
-    member do
-      post 'add_to_garden'
-    end
-  end
+  resources :plants
+  post 'plants/:id/add_to_garden/:garden_id' => 'plants#add_to_garden', as: :add_to_garden
+
   
   # set custom controller for devise registsrations
   devise_for :users, :controllers => { :registrations => "users/registrations" }

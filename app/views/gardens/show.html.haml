@@ -3,15 +3,12 @@
     .col-md-12
       %p#notice= notice
 
-  .row
-    .col-md-12
-      %h1 #{@garden.name}
-
   .row.jumbotron
-    .col-md-8
+    .col-md-7
       = image_tag( @garden.thumb, {class: "img-responsive, img-thumbnail"})
 
-    .col-md-4
+    .col-md-5
+      %h2 #{@garden.name}
       %p
         %b Square feet:
         #{@garden.square_feet} feet
@@ -29,6 +26,5 @@
     .col-md-12
       %h3 You're growing #{@garden.plants.count} plants:
   .row
-    .col-md-2
-      - @garden.plants.each do |plant|
-        = render("shared/plants/card", {plant: plant, garden: @garden} )
+    - @garden.plants.each do |plant|
+      = render("shared/plants/card", {plant: plant, garden: @garden} )
