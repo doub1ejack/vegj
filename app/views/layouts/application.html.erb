@@ -11,11 +11,12 @@
 <%= render partial: "shared/navbar" %>
 
 <div class="container">
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
+  <div id="flash">
+    <% if notice.present? %>
+        <%= render partial: "shared/notice_banner" %>
+    <% end %>
+  </div>
+
 </div>
 
 <%= yield :top_content %>

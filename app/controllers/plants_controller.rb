@@ -48,6 +48,7 @@ class PlantsController < ApplicationController
       if garden.save
         format.js {
           # return flash method OK
+          flash[:notice] = 'I added that veggie!'
         }
         format.json { render status: :ok }
         format.html { redirect_to garden_path(garden), notice: "#{plant.name} was successfully added." }
