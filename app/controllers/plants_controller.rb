@@ -41,11 +41,11 @@ class PlantsController < ApplicationController
   # POST /plants/{id}/add_to_garden/{id}
   # POST /plants/{id}/add_to_garden/{id}.json
   def add_to_garden
-    garden = Garden.find(params["garden_id"])
+    @garden = Garden.find(params["garden_id"])
     plant = Plant.find(params["id"])
-    garden.plants << plant
+    @garden.plants << plant
     respond_to do |format|
-      if garden.save
+      if @garden.save
         format.js {
           # return flash method OK
           flash[:notice] = 'I added that veggie!'
