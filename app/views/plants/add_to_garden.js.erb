@@ -5,3 +5,6 @@
 
 // update displayed plant cards
 $(".plant-cards").html("<%= j render partial: 'shared/plants/card', collection: @garden.plants, as: :plant, locals: { garden: @garden } %>");
+
+// update the number of plants in the garden
+$(".plant-count").html( <%= @garden.plants.size %> )

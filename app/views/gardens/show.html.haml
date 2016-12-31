@@ -24,7 +24,7 @@
 
   .row
     .col-md-12
-      %h3 You're growing #{@garden.plants.count} plants:
+      %h3 You're growing <span class="plant-count">#{@garden.plants.count}</span> plants:
   .row.plant-cards
     - @garden.plants.each do |plant|
       = render("shared/plants/card", {plant: plant, garden: @garden} )
