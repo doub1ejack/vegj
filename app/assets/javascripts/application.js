@@ -16,6 +16,6 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-$( document ).ready(function() {
+$(document).on('turbolinks:load', function() {
     flashMessageSetTimeout();
 });
