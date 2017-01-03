@@ -1,7 +1,9 @@
 // Flash message to user
 <% flash.each do |key, message| %>
-  $("#flash").html("<%= j render partial: "shared/flash_message", locals: {key: key, message: message } %>");
+  <% (@alerts ||= "") << j( render( partial: "shared/flash_message", locals: {key: key, message: message } ) ) %>
 <% end %>
+$("#flash").html("<%= @alerts %>");
+flashMessageSetTimeout();
 
 // update displayed plant cards
 $(".plant-cards").html("<%= j render partial: 'shared/plants/card', collection: @garden.plants, as: :plant, locals: { garden: @garden } %>");
